@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * max);
+        }
+
+        function getComputerchoice(){
+            let comnum=getRandomInt(3);
+            let comchoice;
+            switch(comnum){
+                case 0:
+                    comchoice="rock";
+                    break;
+                case 1:
+                    comchoice="paper";
+                    break;
+                case 2:
+                    comchoice="scissors";
+                    break;
+            }
+            return comchoice;
+        }
+        
+        
+
+        function getHumanchoice(){
+            let humanchoice=prompt("Enter your choice 1. rock 2.paper 3.scissors");
+            let humchoicev1=humanchoice.toLowerCase();
+            return humchoicev1;
+        }
+        let Humanscore=0;
+        let computerscore=0;
+
+        function playround(humanChoice,computerchoice){
+            const humanSelection = getHumanchoice();
+            const computerSelection = getComputerchoice();
+            if(humanSelection==="rock" &&computerSelection ==="rock"){
+                console.log("Draw!");
+            }
+            else if(humanSelection==="rock" &&computerSelection ==="paper"){
+                console.log("You Lose! Paper beats Rock");  
+                computerscore++;              
+            }
+            else if(humanSelection==="rock" &&computerSelection ==="scissors"){
+                console.log("You Win! Rock beats Scissors");   
+                Humanscore++;             
+            }
+            else if(humanSelection==="paper" &&computerSelection ==="scissors"){
+                console.log("You Lose! Scissors beats Paper"); 
+                computerscore++;               
+            }
+            else if(humanSelection==="paper" &&computerSelection ==="rock"){
+                console.log("You Win! Paper beats rock");  
+                Humanscore++;              
+            }
+            else if(humanSelection==="paper" &&computerSelection ==="paper"){
+                console.log("Draw");                
+            }
+            else if(humanSelection==="scissors" &&computerSelection ==="scissors"){
+                console.log("Draw");                
+            }
+            else if(humanSelection==="scissors" &&computerSelection ==="paper"){
+                console.log("You Win! scissors beats paper");   
+                Humanscore++;             
+            }
+            else if(humanSelection==="scissors" &&computerSelection ==="Rock"){
+                console.log("You Lose! Rock beats scissors");    
+                computerscore++;            
+            }
+
+        }
+
+        function playgame(){
+            let i=0;
+            for(i;i<5;i++){
+                playround();
+            }
+            return("Your Score "+Humanscore+" v/s Computer Score "+computerscore);
+        }
+        console.log(playgame());
+    </script>
+</body>
+</html>
